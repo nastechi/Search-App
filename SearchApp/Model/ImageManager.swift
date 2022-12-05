@@ -12,10 +12,11 @@ protocol ImageManagerDelegate {
     func didFailWithError(_ error: Error)
 }
 
-struct ImageManager {
+class ImageManager {
     
-    let imagesUrl = "https://serpapi.com/search.json?tbm=isch&ijn=0&q="
+    let imagesUrl = "https://serpapi.com/search.json?tbm=isch&ijn=0&api_key=\(Keys.apiKey)&q="
     var delegate: ImageManagerDelegate?
+    var images = [Image]()
     
     func fetchImages(query: String) {
         let urlString = imagesUrl + query
@@ -32,13 +33,12 @@ struct ImageManager {
             }
             
             guard let data = data else { return }
-            guard let images = parseJSON(with: data) else { return }
-            self.delegate?.didUpdateImages(self, images: images)
+            self.parseJSON(with: data)
         }
         task.resume()
     }
     
-    func parseJSON(with imageData: Data) -> [Image]? {
+    func parseJSON(with imageData: Data) {
         var images = [Image]()
         let decoder = JSONDecoder()
         do {
@@ -54,12 +54,14 @@ struct ImageManager {
                 let image = Image(thumbnail: thumbNail, fullSize: fullSize, sourceLink: sourceLink, position: position)
                 images.append(image)
             }
-            
-            return images
+            DispatchQueue.main.async {
+                self.images = images
+                self.delegate?.didUpdateImages(self, images: images)
+            }
             
         } catch {
             delegate?.didFailWithError(error)
-            return nil
+            return
         }
     }
 }
