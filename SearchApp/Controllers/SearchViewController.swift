@@ -28,6 +28,7 @@ class SearchViewController: UIViewController {
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         if let query = searchTextField.text {
             activityIndicatorView.startAnimating()
+            collectionView.isHidden = true
             activityIndicatorView.isHidden = false
             searchTextField.resignFirstResponder()
             imageManager.fetchImages(query: query)
@@ -41,6 +42,7 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let query = searchTextField.text {
             activityIndicatorView.startAnimating()
+            collectionView.isHidden = true
             activityIndicatorView.isHidden = false
             searchTextField.resignFirstResponder()
             imageManager.fetchImages(query: query)
@@ -55,6 +57,7 @@ extension SearchViewController: ImageManagerDelegate {
         activityIndicatorView.stopAnimating()
         activityIndicatorView.isHidden = true
         collectionView.reloadData()
+        collectionView.isHidden = false
     }
     
     func didFailWithError(_ error: Error) {

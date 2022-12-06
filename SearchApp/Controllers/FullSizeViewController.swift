@@ -127,13 +127,8 @@ class FullSizeViewController: UIViewController {
     }
     
     @objc func sourceButtonPressed() {
-        performSegue(withIdentifier: K.webSegue, sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.webSegue {
-            (segue.destination as! WebViewController).urlString = imageModel.sourceLink
-        }
+        let webViewController = WebViewController(urlString: imageModel.sourceLink)
+        show(webViewController, sender: self)
     }
     
     @objc func previousButtonPressed() {
