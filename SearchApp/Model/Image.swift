@@ -12,4 +12,5 @@ struct Image {
     let fullSize: String
     let sourceLink: String
     let position: Int
+    let title: String
 }

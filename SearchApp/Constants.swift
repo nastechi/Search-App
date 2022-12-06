@@ -9,4 +9,5 @@ import Foundation
 
 struct K {
     static let cellIdentifier = "searchCollectionViewCell"
+    static let fullSizeSegue = "GoToFullSizeScreen"
 }

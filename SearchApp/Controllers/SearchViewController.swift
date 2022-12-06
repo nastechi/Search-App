@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var imageManager = ImageManager()
+    private let imageManager = ImageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +57,19 @@ extension SearchViewController: ImageManagerDelegate {
 extension SearchViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: K.fullSizeSegue, sender: self)
         collectionView.deselectItem(at: indexPath, animated: true)
         let index = indexPath.row
         let selectedImage = imageManager.images[index]
         print("selected \(selectedImage.thumbnail)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.fullSizeSegue {
+            guard let indexPath = collectionView.indexPathsForSelectedItems?[0] else { return }
+            let image = imageManager.images[indexPath.row]
+            (segue.destination as! FullSizeViewController).imageModel = image
+        }
     }
 }
 
@@ -73,7 +82,7 @@ extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.cellIdentifier, for: indexPath) as! SearchCollectionViewCell
-        loadImage(url: imageManager.images[indexPath.row].thumbnail) { image in
+            imageManager.loadImage(url: imageManager.images[indexPath.row].thumbnail) { image in
             cell.configure(with: image)
         }
         return cell

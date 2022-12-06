@@ -16,4 +16,5 @@ struct ImagesResults: Decodable {
     let thumbnail: String
     let original: String
     let link: String
+    let title: String
 }

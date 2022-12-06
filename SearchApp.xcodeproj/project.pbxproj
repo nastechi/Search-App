@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09989570293F61DD00BD3DAF /* FullSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998956F293F61DD00BD3DAF /* FullSizeViewController.swift */; };
 		09FE5A39293DE4E300F51C23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A38293DE4E300F51C23 /* AppDelegate.swift */; };
 		09FE5A3B293DE4E300F51C23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A3A293DE4E300F51C23 /* SceneDelegate.swift */; };
 		09FE5A3D293DE4E300F51C23 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A3C293DE4E300F51C23 /* SearchViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0998956F293F61DD00BD3DAF /* FullSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSizeViewController.swift; sourceTree = "<group>"; };
 		09FE5A35293DE4E300F51C23 /* SearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09FE5A38293DE4E300F51C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09FE5A3A293DE4E300F51C23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				09FE5A3C293DE4E300F51C23 /* SearchViewController.swift */,
 				09FE5A63293E69FA00F51C23 /* SearchCollectionViewCell.swift */,
 				09FE5A64293E69FA00F51C23 /* SearchCollectionViewCell.xib */,
+				0998956F293F61DD00BD3DAF /* FullSizeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				09FE5A3D293DE4E300F51C23 /* SearchViewController.swift in Sources */,
 				09FE5A4D293DEAB900F51C23 /* Image.swift in Sources */,
+				09989570293F61DD00BD3DAF /* FullSizeViewController.swift in Sources */,
 				09FE5A39293DE4E300F51C23 /* AppDelegate.swift in Sources */,
 				09FE5A54293DF24600F51C23 /* ImageManager.swift in Sources */,
 				09FE5A52293DF08F00F51C23 /* ImageData.swift in Sources */,

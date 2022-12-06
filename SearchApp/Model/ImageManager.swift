@@ -5,7 +5,7 @@
 //  Created by Анастасия on 05.12.2022.
 //
 
-import Foundation
+import UIKit
 
 protocol ImageManagerDelegate {
     func didUpdateImages(_ imageManager: ImageManager, images: [Image])
@@ -50,8 +50,9 @@ class ImageManager {
                 let thumbNail = data[i].thumbnail
                 let fullSize = data[i].original
                 let sourceLink = data[i].link
+                let title = data[i].title
                 
-                let image = Image(thumbnail: thumbNail, fullSize: fullSize, sourceLink: sourceLink, position: position)
+                let image = Image(thumbnail: thumbNail, fullSize: fullSize, sourceLink: sourceLink, position: position, title: title)
                 images.append(image)
             }
             DispatchQueue.main.async {
@@ -63,5 +64,19 @@ class ImageManager {
             delegate?.didFailWithError(error)
             return
         }
+    }
+    
+    func loadImage(url urlString: String, complition: @escaping (UIImage) -> Void) {
+        guard let imageUrl = URL(string: urlString) else {
+            return
+        }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: imageUrl) { data, response, error in
+            guard error == nil, let data = data else { return }
+            if let image = UIImage(data: data) {
+                complition(image)
+            }
+        }
+        task.resume()
     }
 }
