@@ -19,7 +19,7 @@ class ImageManager {
     var images = [Image]()
     
     func fetchImages(query: String) {
-        var clearQuery = query.replacingOccurrences(of: " ", with: "%20")
+        let clearQuery = query.replacingOccurrences(of: " ", with: "%20")
         let urlString = imagesUrl + clearQuery
         performRequest(with: urlString)
     }

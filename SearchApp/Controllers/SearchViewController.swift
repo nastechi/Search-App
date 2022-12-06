@@ -67,8 +67,8 @@ extension SearchViewController: UICollectionViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.fullSizeSegue {
             guard let indexPath = collectionView.indexPathsForSelectedItems?[0] else { return }
-            let image = imageManager.images[indexPath.row]
-            (segue.destination as! FullSizeViewController).imageModel = image
+            (segue.destination as! FullSizeViewController).images = imageManager.images
+            (segue.destination as! FullSizeViewController).imageIndex = indexPath.row
         }
     }
 }
@@ -87,21 +87,6 @@ extension SearchViewController: UICollectionViewDataSource {
         }
         return cell
     }
-    
-    func loadImage(url urlString: String, complition: @escaping (UIImage) -> Void) {
-        guard let imageUrl = URL(string: urlString) else {
-            return
-        }
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: imageUrl) { data, response, error in
-            guard error == nil, let data = data else { return }
-            if let image = UIImage(data: data) {
-                complition(image)
-            }
-        }
-        task.resume()
-    }
-    
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
