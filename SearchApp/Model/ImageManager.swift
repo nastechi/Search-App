@@ -17,6 +17,7 @@ class ImageManager {
     let imagesUrl = "https://serpapi.com/search.json?tbm=isch&ijn=0&api_key=\(Keys.apiKey)&q="
     var delegate: ImageManagerDelegate?
     var images = [Image]()
+    var imageCache = NSCache<NSString, UIImage>()
     
     func fetchImages(query: String) {
         let clearQuery = query.replacingOccurrences(of: " ", with: "%20")
@@ -68,16 +69,21 @@ class ImageManager {
     }
     
     func loadImage(url urlString: String, complition: @escaping (UIImage) -> Void) {
-        guard let imageUrl = URL(string: urlString) else {
-            return
-        }
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: imageUrl) { data, response, error in
-            guard error == nil, let data = data else { return }
-            if let image = UIImage(data: data) {
+        
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
+            complition(cachedImage)
+        } else {
+            guard let imageUrl = URL(string: urlString) else { return }
+            
+            let request = URLRequest(url: imageUrl, cachePolicy: URLRequest.CachePolicy.returnCacheDataElseLoad, timeoutInterval: 15)
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard error == nil, let data = data else { return }
+                
+                guard let image = UIImage(data: data) else { return }
+                self.imageCache.setObject(image, forKey: urlString as NSString)
                 complition(image)
             }
+            task.resume()
         }
-        task.resume()
     }
 }

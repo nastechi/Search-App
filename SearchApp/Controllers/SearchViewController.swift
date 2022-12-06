@@ -11,11 +11,13 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     private let imageManager = ImageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicatorView.isHidden = true
         collectionView.register(SearchCollectionViewCell.nib(), forCellWithReuseIdentifier: K.cellIdentifier)
         searchTextField.delegate = self
         imageManager.delegate = self
@@ -25,6 +27,8 @@ class SearchViewController: UIViewController {
 
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         if let query = searchTextField.text {
+            activityIndicatorView.startAnimating()
+            activityIndicatorView.isHidden = false
             searchTextField.resignFirstResponder()
             imageManager.fetchImages(query: query)
         }
@@ -36,6 +40,8 @@ extension SearchViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let query = searchTextField.text {
+            activityIndicatorView.startAnimating()
+            activityIndicatorView.isHidden = false
             searchTextField.resignFirstResponder()
             imageManager.fetchImages(query: query)
         }
@@ -46,6 +52,8 @@ extension SearchViewController: UITextFieldDelegate {
 extension SearchViewController: ImageManagerDelegate {
     
     func didUpdateImages(_ imageManager: ImageManager, images: [Image]) {
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.isHidden = true
         collectionView.reloadData()
     }
     
@@ -59,9 +67,6 @@ extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: K.fullSizeSegue, sender: self)
         collectionView.deselectItem(at: indexPath, animated: true)
-        let index = indexPath.row
-        let selectedImage = imageManager.images[index]
-        print("selected \(selectedImage.thumbnail)")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
