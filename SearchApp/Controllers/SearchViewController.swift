@@ -37,7 +37,6 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let query = searchTextField.text {
             searchTextField.resignFirstResponder()
-            print(query)
             imageManager.fetchImages(query: query)
         }
         return true
@@ -57,6 +56,12 @@ extension SearchViewController: ImageManagerDelegate {
 
 extension SearchViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let index = indexPath.row
+        let selectedImage = imageManager.images[index]
+        print("selected \(selectedImage.thumbnail)")
+    }
 }
 
 extension SearchViewController: UICollectionViewDataSource {
@@ -92,6 +97,14 @@ extension SearchViewController: UICollectionViewDataSource {
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: collectionView.frame.width * 0.32, height: collectionView.frame.width * 0.32)
+        CGSize(width: collectionView.frame.width / 3 - 1, height: collectionView.frame.width / 3 - 4)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        1.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        1.0
     }
 }

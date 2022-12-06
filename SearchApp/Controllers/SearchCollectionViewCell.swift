@@ -19,6 +19,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
     public func configure(with image: UIImage) {
         DispatchQueue.main.async {
             self.imageView.image = image
+            self.imageView.contentMode = .scaleAspectFill
         }
     }
     

@@ -16,10 +16,10 @@
 		09FE5A4D293DEAB900F51C23 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A4C293DEAB900F51C23 /* Image.swift */; };
 		09FE5A52293DF08F00F51C23 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A51293DF08F00F51C23 /* ImageData.swift */; };
 		09FE5A54293DF24600F51C23 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A53293DF24600F51C23 /* ImageManager.swift */; };
-		09FE5A60293E5FCB00F51C23 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A5F293E5FCB00F51C23 /* Keys.swift */; };
 		09FE5A62293E64DB00F51C23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A61293E64DB00F51C23 /* Constants.swift */; };
 		09FE5A65293E69FA00F51C23 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A63293E69FA00F51C23 /* SearchCollectionViewCell.swift */; };
 		09FE5A66293E69FA00F51C23 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FE5A64293E69FA00F51C23 /* SearchCollectionViewCell.xib */; };
+		09FE5A6A293F342900F51C23 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A69293F342900F51C23 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +34,10 @@
 		09FE5A4C293DEAB900F51C23 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		09FE5A51293DF08F00F51C23 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		09FE5A53293DF24600F51C23 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
-		09FE5A5F293E5FCB00F51C23 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		09FE5A61293E64DB00F51C23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		09FE5A63293E69FA00F51C23 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		09FE5A64293E69FA00F51C23 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		09FE5A69293F342900F51C23 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +76,8 @@
 				09FE5A50293DEAD000F51C23 /* View */,
 				09FE5A4F293DEAC600F51C23 /* Controllers */,
 				09FE5A41293DE4E400F51C23 /* Assets.xcassets */,
-				09FE5A5F293E5FCB00F51C23 /* Keys.swift */,
 				09FE5A61293E64DB00F51C23 /* Constants.swift */,
+				09FE5A69293F342900F51C23 /* Keys.swift */,
 				09FE5A43293DE4E400F51C23 /* LaunchScreen.storyboard */,
 				09FE5A46293DE4E400F51C23 /* Info.plist */,
 			);
@@ -188,10 +188,10 @@
 				09FE5A4D293DEAB900F51C23 /* Image.swift in Sources */,
 				09FE5A39293DE4E300F51C23 /* AppDelegate.swift in Sources */,
 				09FE5A54293DF24600F51C23 /* ImageManager.swift in Sources */,
-				09FE5A60293E5FCB00F51C23 /* Keys.swift in Sources */,
 				09FE5A52293DF08F00F51C23 /* ImageData.swift in Sources */,
 				09FE5A3B293DE4E300F51C23 /* SceneDelegate.swift in Sources */,
 				09FE5A62293E64DB00F51C23 /* Constants.swift in Sources */,
+				09FE5A6A293F342900F51C23 /* Keys.swift in Sources */,
 				09FE5A65293E69FA00F51C23 /* SearchCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
