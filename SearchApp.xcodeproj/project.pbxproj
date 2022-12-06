@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09989570293F61DD00BD3DAF /* FullSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0998956F293F61DD00BD3DAF /* FullSizeViewController.swift */; };
 		09989572293FA7FD00BD3DAF /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09989571293FA7FD00BD3DAF /* Keys.swift */; };
+		09989574293FB38200BD3DAF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09989573293FB38200BD3DAF /* WebViewController.swift */; };
 		09FE5A39293DE4E300F51C23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A38293DE4E300F51C23 /* AppDelegate.swift */; };
 		09FE5A3B293DE4E300F51C23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A3A293DE4E300F51C23 /* SceneDelegate.swift */; };
 		09FE5A3D293DE4E300F51C23 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5A3C293DE4E300F51C23 /* SearchViewController.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		0998956F293F61DD00BD3DAF /* FullSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSizeViewController.swift; sourceTree = "<group>"; };
 		09989571293FA7FD00BD3DAF /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		09989573293FB38200BD3DAF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		09FE5A35293DE4E300F51C23 /* SearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09FE5A38293DE4E300F51C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09FE5A3A293DE4E300F51C23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				09FE5A63293E69FA00F51C23 /* SearchCollectionViewCell.swift */,
 				09FE5A64293E69FA00F51C23 /* SearchCollectionViewCell.xib */,
 				0998956F293F61DD00BD3DAF /* FullSizeViewController.swift */,
+				09989573293FB38200BD3DAF /* WebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09FE5A3D293DE4E300F51C23 /* SearchViewController.swift in Sources */,
+				09989574293FB38200BD3DAF /* WebViewController.swift in Sources */,
 				09FE5A4D293DEAB900F51C23 /* Image.swift in Sources */,
 				09989570293F61DD00BD3DAF /* FullSizeViewController.swift in Sources */,
 				09FE5A39293DE4E300F51C23 /* AppDelegate.swift in Sources */,

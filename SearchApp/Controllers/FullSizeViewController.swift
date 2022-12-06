@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class FullSizeViewController: UIViewController {
     
@@ -128,9 +127,13 @@ class FullSizeViewController: UIViewController {
     }
     
     @objc func sourceButtonPressed() {
-        guard let url = URL(string: imageModel.sourceLink) else { return }
-        let safariVC = SFSafariViewController(url: url)
-        present(safariVC, animated: true, completion: nil)
+        performSegue(withIdentifier: K.webSegue, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.webSegue {
+            (segue.destination as! WebViewController).urlString = imageModel.sourceLink
+        }
     }
     
     @objc func previousButtonPressed() {

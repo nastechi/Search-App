@@ -95,10 +95,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fep-YQ-1nj"/>
+                    <connections>
+                        <segue destination="FwS-7r-cIX" kind="show" identifier="GoToWebController" id="ng8-ZP-axu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzr-8p-aqq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2007.6923076923076" y="3.5545023696682461"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="eRI-oX-1gP">
+            <objects>
+                <viewController id="FwS-7r-cIX" customClass="WebViewController" customModule="SearchApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SH9-vw-sxC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ErE-MC-iGF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Iyp-BJ-6US"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J33-ut-b2g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2943" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZN8-kG-nw8">
